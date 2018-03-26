@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>Truck agency</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/master.css'%}">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+                        <!-- Navbar-->
+<!--======================================================================================================================== -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="\">Delhi Travels</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'create' %}">Create Truck Details</a></li>
+     <!--dropdown button-->
+
+        <!-- this condition checks for the remaing days for expiry of perticular document -->
+        <!-- ============================================================================ -->
+        {% if rem %}
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Notification
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-area">
+            {% if days_rem_licence == 7 or days_rem_licence == 15 or days_rem_licence == 30 and days_rem_fitness == 7 or days_rem_fitness == 15 or days_rem_fitness == 30 %}
+          <li>Licence Id:{{detail.licance_id}} will expire in {{days_rem_licence}} days.</li><br>
+          <li>Fitness Id: {{detail.fitness_id}} will expire in {{days_rem_fitness}} days.</li><hr>
+            {% if detail.read is False %}
+            <li><a class="js-mark_read" href="{{detail.pk}}">Mark all as read</a></li>
+            {% else %}
+            <li> read</li>
+            {% endif %}
+            {% else %}
+            <li>No new Notifications</li>
+            {% endif %}
+
+        </ul>
+      </li>
+    {% endif %}
+    </ul>
+  </div>
+</nav>
+<!-- ----- end of navbar --->
+
+
+
+
+  {% block body_block %}<!-- block for other templates -->
+  {% endblock %}
+
+
+</body>
+</html>

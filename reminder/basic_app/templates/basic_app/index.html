@@ -1,0 +1,14 @@
+{% extends "basic_app/base.html"%}
+
+{% block body_block %}
+{% for i in data %}
+<div class="container jumbotron">
+<!--<h3><a href="{{i.pk}}">Truck No: DHL{{i.truck_number}}</a></h3><hr>
+    <h4>Delhi Travels.co.ltd</h4> -->
+    <h3><a href="{% url 'details' i.pk %}">Truck No: DEL {{i.truck_number}}</a></h3><hr>
+    <h4>Delhi Travels.co.ltd</h4>
+</div>
+{% endfor %}
+
+{% endblock %}
+

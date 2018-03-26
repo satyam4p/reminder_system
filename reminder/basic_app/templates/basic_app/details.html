@@ -1,0 +1,23 @@
+{% extends "basic_app/base.html"%}
+
+
+
+{% block body_block %}
+<div class="container jumbotron">
+    <!-- details of perticular truck -->
+    <h2>Truck Id: {{truck_id}}</h2><hr>
+    <h2>Details:</h2>
+    <h3>Truck Number:DEL {{detail.truck_number}}</h3>
+    <h3>Licence Id: {{detail.licance_id}}</h3>
+    <h3>Licence Expiry: {{detail.licence_exp}}</h3>
+    <h3>Fitness Id: {{detail.fitness_id}}</h3>
+    <h3>Fitness Expiry: {{detail.fitness_exp}}</h3>
+
+
+
+</div>
+
+{% endblock %}
+
+
+
